@@ -61,7 +61,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 set(Protobuf_USE_STATIC_LIBS ON)
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
-include_directories(${PROTOBUF_INCLUDE_DIR})
+include_directories(BEFORE ${PROTOBUF_INCLUDE_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 set(PROTOS
   ${SERENADE_SOURCE_ROOT}/toolbelt/src/main/proto/code-engine.proto
