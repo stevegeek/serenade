@@ -86,6 +86,11 @@ include_directories(include)
 include_directories(${SERENADE_SOURCE_ROOT}/toolbelt/src/main/cpp/include)
 file(GLOB SOURCES src/*.cc src/*/*.cc)
 add_executable(serenade-code-engine ${SOURCES} server/code_engine_server.cc)
+
+list(APPEND CMAKE_PREFIX_PATH ${SERENADE_LIBRARY_ROOT}/icu4c)
+find_package(ICU 72.1 COMPONENTS uc i18n data REQUIRED)
+target_link_libraries(serenade-code-engine ICU::uc ICU::i18n ICU::data)
+
 target_link_libraries(serenade-code-engine
   code-engine_protobuf
   pthread

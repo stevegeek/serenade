@@ -126,6 +126,11 @@ set(KALDI_LIBRARIES
 )
 
 add_executable(serenade-speech-engine ${SOURCES} server/speech_engine_server.cc)
+
+list(APPEND CMAKE_PREFIX_PATH ${SERENADE_LIBRARY_ROOT}/icu4c)
+find_package(ICU 72.1 COMPONENTS uc i18n data REQUIRED)
+target_link_libraries(serenade-speech-engine ICU::uc ICU::i18n ICU::data)
+
 target_link_libraries(serenade-speech-engine
   speech-engine_protobuf
   pthread
