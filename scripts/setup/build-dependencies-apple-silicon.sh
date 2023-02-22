@@ -57,6 +57,7 @@ rm -rf \
   boost-src \
   crow \
   gradle-* \
+  icu-src \
   kaldi \
   marian \
   sentencepiece \
@@ -73,6 +74,17 @@ git clone https://github.com/CrowCpp/crow crow
 cd crow
 git checkout v1.0+1
 cd ..
+
+wget https://github.com/unicode-org/icu/releases/download/release-72-1/icu4c-72_1-src.tgz
+mkdir -p icu4c
+tar -xzvf icu4c-72_1-src.tgz
+mv icu icu-src
+cd icu-src/source
+arch -x86_64 /bin/bash ./configure  --prefix=$PWD/../../icu4c --disable-samples --disable-tests --enable-rpath --with-library-bits=64
+arch -x86_64 make
+arch -x86_64 make install
+cd ../../
+rm icu4c-72_1-src.tgz
 
 git clone --recursive https://github.com/boostorg/boost.git boost-src
 cd boost-src
