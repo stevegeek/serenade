@@ -74,7 +74,7 @@ Serenade uses two environment variables to describe where source code and depend
 - `SERENADE_SOURCE_ROOT`: The location of the `serenade` repository. Defaults to `~/serenade`.
 - `SERENADE_LIBRARY_ROOT`: The location of Serenade dependencies. Defaults to `~/libserenade`.
 
-If you're using a Mac, make sure you're running all of these commands in [Rosetta](https://support.apple.com/en-us/HT211861). Serenade currently only supports x86-64 architectures, and not arm64.
+If you're using a Mac, make sure you're running all of these commands in [Rosetta](https://support.apple.com/en-us/HT211861). Serenade currently only supports x86-64 architectures, and not arm64. A full guide can be found in the `docs/building-on-apple-silicon.md` document.
 
 To install necessary system-wide dependencies onto your system, run:
 
